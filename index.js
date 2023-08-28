@@ -25,11 +25,17 @@ const authRouter = require("./routes/authRoutes");
 const userRouter = require("./routes/userRoutes");
 
 
+
+
 app.use("/api/v1/uploads",uploadRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 
 
-app.listen(5000, () => {
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.listen(port, () => {
     console.log(`server has started on port ${port}`);
 })
